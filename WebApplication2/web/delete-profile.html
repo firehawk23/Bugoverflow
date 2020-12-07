@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Delete Profile</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    .aligncenter {
+    text-align: center;
+}
+body {
+  background-color: salmon ;
+}
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none; /* remove underline from anchors */
+
+}
+.btn:hover {
+  opacity:1;
+}
+input[type="checkbox"]:required {
+    display: none;
+  }
+  input[type="checkbox"]:required:invalid + label::before {
+    content: "\2610";
+    padding-right: 0.2em;
+    font-size: 1.6em;
+    color: red;
+  }
+  input[type="checkbox"]:required:valid + label::before {
+    content: "\2611";
+    padding-right: 0.2em;
+    font-size: 1.6em;
+    color: green;
+  }
+
+.delete{
+  background-color: red;
+  color: white;
+}
+.cancel{
+  background-color: silver;
+  color: black;
+}
+
+  </style>
+</head>
+<body>
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <h2>Delete Confirmation</h2> 
+  <img src="bug.jpeg" height="80">
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <h5> <b>Before confirming that you would like your profile deleted, we'd like to take a moment to explain the implications of deletion:</b></h5>
+
+<ul>
+  <li>Deletion is irreversible, and you will have no way to regain any of your original content, should this deletion be carried out and you change your mind later on.</li>
+<li>Your questions and answers will remain on the site, but will be disassociated and anonymized (the author will be listed as "user852092") and will not indicate your authorship even if you later return to the site.</li>
+</ul><br>
+ <input type="checkbox" id="confirm" required> <label for="confirm"> I have read the information stated above and understand the implications of having my profile deleted. I wish to proceed with the deletion of my profile.</label>
+    <br>
+    <button type="button" class="delete" onClick="cb()"><i class="fa fa-trash-o fa-lg"></i> Delete</button>
+    <button type="button" class="cancel" onClick="refreshPage()">Cancel</button>
+    <p id="text" style="display:none"><b>Checkbox is not CHECKED!</b></p>
+  </div>
+</div>
+
+
+<script>
+  function refreshPage(){
+    window.location.reload();
+}
+  function cb(){
+    var checkBox = document.getElementById("confirm");
+  var text = document.getElementById("text");
+  if (checkBox.checked == false){
+    text.style.display = "block";
+  } else {
+    window.location.replace("confdel.html");
+  }
+  }
+</script>
+</body>
+</html>
